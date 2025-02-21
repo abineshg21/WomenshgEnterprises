@@ -1,0 +1,16 @@
+<div class="navbar" style="padding: 20px;">
+    <div class="logo">
+        <h1 style="margin: unset;">WOMEN SHG ENTERPRISES</h1>
+      <!-- <img src="assets/Images/Shopping.png" alt="Logo" /> -->
+    </div>
+    <div class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </div>
+    <ul class="menu" [class.show]="isMenuOpen">
+      <li><a routerLink="/">Home</a></li>
+  <li><a [routerLink]="['/product']" >Products</a></li>
+  <li><a [routerLink]="['/gallery']" >Gallrey</a></li>
+  <li><a [routerLink]="['/ContactUs']">Contact Us</a></li>
+    </ul>
+  </div>
+  

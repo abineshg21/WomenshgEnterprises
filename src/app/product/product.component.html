@@ -1,0 +1,74 @@
+
+  <div style="overflow:hidden;">
+   
+   <div  *ngFor="let item of AllArray">
+    <div  class="container-fluid carousel-wrap" *ngIf="item.viewAll=='All'? true :false"  style="overflow: hidden;width:96%;margin-top:50px;padding-bottom: 50px;"  data-aos="fade-up-left"> 
+       
+        <div class="product-section" id="{{ item.subCategoryName }}">
+            <h2 class="section-title">{{ item.subCategoryName }}</h2>
+            <div class="product-grid">
+              <div class="product-card" *ngFor="let Menuitem of item.menuitem">
+                
+                <div class="menu-variance" *ngFor="let variance of Menuitem.menuvariance">
+                  
+                  <!-- Product Image -->
+                  <div class="product-image">
+                    <img [src]="variance.imageUrl1" style="width: 100%;" [alt]="Menuitem.itemName" class="menu-image" />
+                    <span class="discount-badge" *ngIf="Menuitem.discountAmt">
+                      {{ Menuitem.discountAmt }}% OFF
+                    </span>
+                  </div>
+                  
+                  <!-- Product Name & Price (Left & Right Alignment) -->
+                  <div class="product-details">
+                    <h3 class="product-title">
+                      <span class="name">{{ Menuitem.itemName }} -  {{ variance.menuvarianceName }}</span>
+                      <span class="price">&#8377; {{ variance.price1  }}</span>
+                    </h3>
+                  </div>
+          
+                  <!-- Variance Selector -->
+                  <!-- <div class="variance-selector" *ngIf="variance.menuvarianceName1">
+                    <button 
+                      *ngFor="let menu1 of Menuitem.menuvariance | slice: 0:3" 
+                      class="variance-btn"
+                      (click)="Addvariance(Menuitem, menu1.menuVariance)"
+                    >
+                      {{ menu1.menuvarianceName }}
+                    </button>
+                  </div> -->
+          
+                  
+          
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+  
+   </div>
+    
+    <style>
+        @media(min-width:768px) {
+            .dollar {
+                padding-right: unset !important;
+                padding-left: unset !important;
+            }
+        }
+ .owl-next{
+    position: absolute;
+    top: 41%;
+    right:  -30px;
+    float:right;
+}
+ .owl-prev{
+    position: absolute;
+    top: 41%;
+left: -30px;
+}
+    </style>
+  
+  </div>
+  
+  
