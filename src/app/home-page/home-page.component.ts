@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewEncapsulation } from '@angular/core';
-import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
 import{ HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { environment } from 'src/environments/environment';

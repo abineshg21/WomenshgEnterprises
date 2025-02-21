@@ -1,10 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy,ViewEncapsulation,  ViewChild,TemplateRef ,HostListener} from '@angular/core';
-import * as $ from 'jquery';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { HttpParams } from "@angular/common/http";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 @Component({
   selector: 'app-header-component',
   templateUrl: './header-component.component.html',
@@ -16,7 +11,7 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 export class HeaderComponentComponent implements OnInit {
   
   
- constructor(private modalService: NgbModal, private http: HttpClient) {
+ constructor() {
  
   }
  

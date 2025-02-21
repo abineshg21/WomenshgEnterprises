@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ViewEncapsulation } from '@angular/core';
 import * as $ from 'jquery';
 import { ActivatedRoute } from '@angular/router';
@@ -63,78 +62,9 @@ export class ProductComponent implements OnInit {
    QualitiesArray =[] as any;
    menuid:string;
    menuname:string;
-  constructor(private modalService: NgbModal, private route: ActivatedRoute,private http:HttpClient) { 
-    this.menuid=this.route.snapshot.params.id;
-    this.menuname=this.route.snapshot.params.text;
+  constructor() { 
   }
-  Allcilick(itrm)
-  {
-    debugger;
-    if(itrm.viewAll =="less"){
-      itrm.viewAll="All";
-    }
-    else{
-      itrm.viewAll="less";
-    }
 
-  }
-  LoadDetail(){
-    this.More =this.More ? false :true;
-  }
-  
-  menuopen(menu) {
-    debugger;
-    var x = document.getElementById(menu);
-
-    if (x.style.display == "block") {
-        x.style.display = "none";
-      
-    }
-    else {
-        x.style.display = "block";
-    }
- }
-
-ShowHidePrice (menu) {
-  debugger;
-  var x = document.getElementById(menu);
-
-  if (x.style.display == "block") {
-      x.style.display = "none";
-      document.getElementById("priceplus").className = "glyphicon glyphicon-plus pull-right";
-  }
-  else {
-      x.style.display = "block";
-      document.getElementById("priceplus").className = "glyphicon glyphicon-minus pull-right";
-  }
-}
-ShowHideCategory(menu) {
-  debugger;
-  var x = document.getElementById(menu);
-
-  if (x.style.display == "block") {
-      x.style.display = "none";
-      document.getElementById("Categoryplus").className = "glyphicon glyphicon-plus pull-right";
-  }
-  else {
-      x.style.display = "block";
-      document.getElementById("Categoryplus").className = "glyphicon glyphicon-minus pull-right";
-
-  }
-}
-ShowHidePayment (menu) {
-  debugger;
-  var x = document.getElementById(menu);
-
-  if (x.style.display == "block") {
-      x.style.display = "none";
-      document.getElementById("Paymentplus").className = "glyphicon glyphicon-plus pull-right";
-  }
-  else {
-      x.style.display = "block";
-      document.getElementById("Paymentplus").className = "glyphicon glyphicon-minus pull-right";
-  }
-}
   Dish(){
     debugger;
     this.DISHColor =true;
@@ -184,29 +114,10 @@ this.Special=this.Special ? false : true;
 
   }
 
-  customOptions: OwlOptions;
   ngOnInit(): void {
  debugger;
 
- window.scrollTo(0, 0);
-if( this.menuid != "" && this.menuid != null){
-  this.Filter =true;
-  if(Number (this.menuid) > Number(6))
-  {
-    this.More=true; 
-  
-   self.location.href="/#"+this.menuname;
-  }
-  else{
-    //window.location.href="/#"+this.menuname;
-   // location.assign("/#" + this.menuname);
-  // parent.location.hash = "/#" + this.menuname;
- // window.open("/#" + this.menuname, "_self");
-  // window.open("/#" + this.menuname);
 
-  self.location.href="/#"+this.menuname;
-  }
-}
 
 this.AllArray = JSON.parse(`[{
   "subCategoryName": "Products",
@@ -298,53 +209,6 @@ this.AllArray = JSON.parse(`[{
   const totalItems = this.AllArray?.Menuitem?.length || 0;
   
 
-  }
-  handleoffer($event,offer){
-    debugger;
-    var UserId=sessionStorage.getItem('CustomerId');
-    var GustId= sessionStorage.getItem('GuesId');
-    if ($event.target.checked === true) {
-
-
-
-      if( offer== "Discount" )
-      {
-
-if( this.FilterData != 0){
-for(let i=0;i< this.FilterData ;i++){
-  if(this.FilterData[i].couponAmt  != 0){
-    if(this.discoun.length != 0){
-      this.discoun.push({"couponAmt":this.FilterData[i].couponAmt,"couponAmt1":this.FilterData[i].couponAmt1, "couponType":this.FilterData[i].couponType, "description":this.FilterData[i].description,"discount":this.FilterData[i].discount,"favId":this.FilterData[i].favId, "imageUrl":this.FilterData[i].imageUrl,"itemName":this.FilterData[i].itemName,"menuItemId":this.FilterData[i].menuItemId,"menuVariance":this.FilterData[i].menuVariance,"newPrice":this.FilterData[i].newPrice,"price":this.FilterData[i].price,"quan":this.FilterData[i].quan});
-    }
-else{
-this.discoun=this.FilterData(i,1);
-}
-  }
-}
-this.FilterData = this.discoun;
-}
-else{
-  var value= this.http.get(environment.apiUrl + 'Filter/FOffer?Type='+offer + '&Cus_Id='+UserId +'&GustId='+GustId).toPromise().then(
-    (data:any)=> {
-      debugger;
-    if(data.length!=0 ){
-      this.Filter=false;
-      this.FilterData=data;
-    }
-    else{
-    };
-    });
-}
-
-        
-      }
-      else{
-        this.FilterData=[];
-      }
-    }
-    else{
-      this.FilterData=this.pricefilter;
-    }
   }
   
 }

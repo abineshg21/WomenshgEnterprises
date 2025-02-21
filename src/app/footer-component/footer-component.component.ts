@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import{ HttpClient} from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-footer-component',
@@ -12,7 +10,7 @@ export class FooterComponentComponent implements OnInit {
   ItemsArrayMenu:[];
   TimeArray:[];
   StartTime;
-  constructor(private modalService: NgbModal,private http:HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
     

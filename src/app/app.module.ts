@@ -1,12 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { JwPaginationModule } from 'jw-angular-pagination';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,13 +17,6 @@ import {MatSortModule} from  '@angular/material/sort';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider,
-  AmazonLoginProvider,
-} from 'angularx-social-login';
 import { ProductComponent } from './product/product.component';
 import { GalleryComponent } from './gallery/gallery.component';
 @NgModule({
@@ -41,10 +31,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     GalleryComponent
   ],
   imports: [
-    BrowserModule, JwPaginationModule,MatDialogModule ,MatTableModule,MatPaginatorModule,MatSortModule,MatDatepickerModule,MatFormFieldModule,
-    NgxMaterialTimepickerModule, MatNativeDateModule, AppRoutingModule,HttpClientModule,CarouselModule,BrowserAnimationsModule,FormsModule,ReactiveFormsModule, NgbModule,
-    
-    SocialLoginModule
+    BrowserModule,MatDialogModule ,MatTableModule,MatPaginatorModule,MatSortModule,MatDatepickerModule,MatFormFieldModule,
+     MatNativeDateModule, AppRoutingModule,HttpClientModule,BrowserAnimationsModule,FormsModule,ReactiveFormsModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
